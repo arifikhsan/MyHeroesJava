@@ -8,4 +8,5 @@
     <string name="description">deskripsi</string>
     <string name="favorite">Favorite</string>
     <string name="share">Share</string>
+    <string name="hero_image">hero image</string>
 </resources>
