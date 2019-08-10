@@ -1,6 +1,5 @@
-package com.example.myheroesjava;
+package com.example.myheroesjava.adapters;
 
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.myheroesjava.R;
 import com.example.myheroesjava.models.Hero;
 
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class CardViewHeroAdapter extends RecyclerView.Adapter<CardViewHeroAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final CardViewViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CardViewViewHolder holder, final int position) {
         Hero hero = listHero.get(position);
 
         Glide.with(holder.itemView.getContext())
@@ -55,6 +55,13 @@ public class CardViewHeroAdapter extends RecyclerView.Adapter<CardViewHeroAdapte
             @Override
             public void onClick(View view) {
                 Toast.makeText(holder.itemView.getContext(), "Share " + listHero.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + listHero.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
